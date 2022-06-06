@@ -66,21 +66,10 @@ const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }) => {
             disabled={variant?.availableForSale === false}
           >
             {variant?.availableForSale === false
-              ? 'Not Available'
-              : 'Add To Cart'}
+              ? 'No disponible'
+              : 'Añadir al Carrito'}
           </Button>
         )}
-      </div>
-      <div className="mt-6">
-        <Collapse title="Care">
-          This is a limited edition production run. Printing starts when the
-          drop ends.
-        </Collapse>
-        <Collapse title="Details">
-          This is a limited edition production run. Printing starts when the
-          drop ends. Reminder: Bad Boys For Life. Shipping may take 10+ days due
-          to COVID-19.
-        </Collapse>
       </div>
     </div>
   )

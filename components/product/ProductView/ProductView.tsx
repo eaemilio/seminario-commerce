@@ -16,6 +16,7 @@ interface ProductViewProps {
 }
 
 const ProductView: FC<ProductViewProps> = ({ product, relatedProducts }) => {
+  console.log('PRODUCT',product)
   const { price } = usePrice({
     amount: product.price.value,
     baseAmount: product.price.retailPrice,
@@ -29,7 +30,7 @@ const ProductView: FC<ProductViewProps> = ({ product, relatedProducts }) => {
           <div className={cn(s.main, 'fit')}>
             <ProductTag
               name={product.name}
-              price={`${price} ${product.price?.currencyCode}`}
+              price={price}
               fontSize={32}
             />
             <div className={s.sliderContainer}>
@@ -62,7 +63,7 @@ const ProductView: FC<ProductViewProps> = ({ product, relatedProducts }) => {
         </div>
         <hr className="mt-7 border-accent-2" />
         <section className="py-12 px-6 mb-10">
-          <Text variant="sectionHeading">Related Products</Text>
+          <Text variant="sectionHeading">Productos Relacionados</Text>
           <div className={s.relatedProductsGrid}>
             {relatedProducts.map((p) => (
               <div

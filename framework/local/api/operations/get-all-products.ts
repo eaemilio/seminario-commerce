@@ -2,7 +2,7 @@ import { Product } from '@commerce/types/product'
 import { GetAllProductsOperation } from '@commerce/types/product'
 import type { OperationContext } from '@commerce/api/operations'
 import type { LocalConfig, Provider } from '../index'
-import data from '../../data.json'
+import { supabase } from '@framework/supabase'
 
 export default function getAllProductsOperation({
   commerce,
@@ -17,8 +17,10 @@ export default function getAllProductsOperation({
     config?: Partial<LocalConfig>
     preview?: boolean
   } = {}): Promise<{ products: Product[] | any[] }> {
+    const { data: products } = await supabase.from<Product>('Producto').select('*');
+    console.log(products)
     return {
-      products: data.products,
+      products: products ?? [],
     }
   }
   return getAllProducts

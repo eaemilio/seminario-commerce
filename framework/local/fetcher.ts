@@ -1,11 +1,11 @@
 import { Fetcher } from '@commerce/utils/types'
+import { supabase } from './supabase'
 
 export const fetcher: Fetcher = async () => {
-  console.log('FETCHER')
-  const res = await fetch('./data.json')
-  if (res.ok) {
-    const { data } = await res.json()
+  const { data, error } = await supabase.from('Producto').select('*');
+  console.log(data)
+  if (!error) {
     return data
   }
-  throw res
+  throw error
 }
