@@ -18,7 +18,7 @@ const Navbar: FC<NavbarProps> = ({ links }) => (
     <Container>
       <div className={s.nav}>
         <div className="flex items-center flex-1">
-          <Link href="/">
+          <Link href={process.env.APP_URL ?? '#'}>
             <a className={s.logo} aria-label="Logo">
               <Logo />
             </a>
