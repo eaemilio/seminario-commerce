@@ -18,7 +18,7 @@ const Navbar: FC<NavbarProps> = ({ links }) => (
     <Container>
       <div className={s.nav}>
         <div className="flex items-center flex-1">
-          <Link href="app.umgtransport.live">
+          <Link href="https://app.umgtransport.live">
             <a className={s.logo} aria-label="Logo">
               <Logo />
             </a>
