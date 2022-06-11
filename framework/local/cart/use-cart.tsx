@@ -12,25 +12,30 @@ export const handler: SWRHook<any> = {
     return {
       id: '',
       createdAt: '',
-      currency: { code: '' },
+      currency: { code: 'GTQ' },
       taxesIncluded: '',
       lineItems: [],
       lineItemsSubtotalPrice: '',
-      subtotalPrice: 0,
-      totalPrice: 0,
+      subtotalPrice: 50,
+      totalPrice: 50,
     }
   },
   useHook:
     ({ useData }) =>
     (input) => {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      const response = useData({
+         swrOptions: { revalidateOnFocus: false, ...input?.swrOption }
+      });
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       return useMemo(
         () =>
           Object.create(
-            {},
+            response,
             {
               isEmpty: {
                 get() {
-                  return true
+                  return (response.data?.lineItems.length ?? 0) <= 0
                 },
                 enumerable: true,
               },

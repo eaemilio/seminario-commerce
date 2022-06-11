@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import Link from 'next/link'
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import s from './CartSidebarView.module.css'
 import CartItem from '../CartItem'
 import { Button, Text } from '@components/ui'
@@ -13,6 +13,11 @@ import SidebarLayout from '@components/common/SidebarLayout'
 const CartSidebarView: FC = () => {
   const { closeSidebar, setSidebarView } = useUI()
   const { data, isLoading, isEmpty } = useCart()
+
+  useEffect(() => {
+    console.log(data)
+  }, [data])
+  
 
   const { price: subTotal } = usePrice(
     data && {

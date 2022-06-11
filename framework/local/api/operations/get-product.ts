@@ -18,7 +18,6 @@ export default function getProductOperation({
     preview?: boolean
   } = {}): Promise<Product | {} | any> {
     const { data } = await supabase.from('Producto').select('*').eq('slug', variables!.slug).limit(1).single();
-    console.log(data);
     return {
       product: data,
     }

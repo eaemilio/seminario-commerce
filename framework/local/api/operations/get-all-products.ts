@@ -18,7 +18,6 @@ export default function getAllProductsOperation({
     preview?: boolean
   } = {}): Promise<{ products: Product[] | any[] }> {
     const { data: products } = await supabase.from<Product>('Producto').select('*');
-    console.log(products)
     return {
       products: products ?? [],
     }
