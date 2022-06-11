@@ -18,14 +18,12 @@ const Navbar: FC<NavbarProps> = ({ links }) => (
     <Container>
       <div className={s.nav}>
         <div className="flex items-center flex-1">
-          <Link href="https://app.umgtransport.live">
+          <Link href="">
             <a className={s.logo} aria-label="Logo">
               <Logo />
             </a>
           </Link>
-          <nav className={s.navMenu}>
-           
-          </nav>
+          
         </div>
         {process.env.COMMERCE_SEARCH_ENABLED && (
           <div className="justify-center flex-1 hidden lg:flex">
@@ -33,6 +31,9 @@ const Navbar: FC<NavbarProps> = ({ links }) => (
           </div>
         )}
         <div className="flex items-center justify-end flex-1 space-x-8">
+          <nav className={s.navMenu}>
+            <a className={s.link} href="https://app.umgtransport.live" target='_blank' rel="noreferrer">Mi Cuenta</a>
+          </nav>
           <UserNav />
         </div>
       </div>
